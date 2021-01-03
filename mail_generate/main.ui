@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>800</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>800</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Рассылка электронных писем на основе шаблонов</string>
+  </property>
+  <property name="windowIcon">
+   <iconset theme="mail">
+    <normaloff>res/mail_ico.png</normaloff>
+    <normalon>res/mail_ico.png</normalon>
+    <disabledoff>res/mail_ico.png</disabledoff>
+    <disabledon>res/mail_ico.png</disabledon>
+    <activeoff>res/mail_ico.png</activeoff>
+    <activeon>res/mail_ico.png</activeon>
+    <selectedoff>res/mail_ico.png</selectedoff>
+    <selectedon>res/mail_ico.png</selectedon>res/mail_ico.png</iconset>
+  </property>
+  <property name="documentMode">
+   <bool>false</bool>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QGroupBox" name="groupBox">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>781</width>
+      <height>291</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Вы можете формировать письма на основе этих шаблонов. Наберите здесь текст письма. Вы можете использовать до трех различных текстов.</string>
+    </property>
+    <widget class="QTabWidget" name="tabWidget">
+     <property name="geometry">
+      <rect>
+       <x>5</x>
+       <y>20</y>
+       <width>772</width>
+       <height>266</height>
+      </rect>
+     </property>
+     <property name="autoFillBackground">
+      <bool>true</bool>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QTextEdit { 
+      background-color: #fffede; 
+}</string>
+     </property>
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="tab1">
+      <attribute name="title">
+       <string>Шаблон №1</string>
+      </attribute>
+      <widget class="QTextEdit" name="textEdit1">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>765</width>
+         <height>240</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QTextEdit { 
+      background-color: #e6ffff; 
+}</string>
+       </property>
+       <property name="html">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2';&quot;&gt;Уважаемый %meta1%!&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2';&quot;&gt;Приглашаю Вас пройти онлайн тренировку к зачету для экспертов региональных проверочных комиссий ЕГЭ по информатике.  &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2';&quot;&gt;Сайт для прохождения тренировки здесь: &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2';&quot;&gt;Ваш логин:%meta4%&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2';&quot;&gt;Ваш пароль: %meta5%&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2';&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2';&quot;&gt;С уважением, председатель комиссии,&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2';&quot;&gt;Г.А.Г.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="tab2">
+      <attribute name="title">
+       <string>Шаблон №2</string>
+      </attribute>
+      <widget class="QTextEdit" name="textEdit2">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>765</width>
+         <height>240</height>
+        </rect>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="tab3">
+      <attribute name="title">
+       <string>Шаблон №3</string>
+      </attribute>
+      <widget class="QTextEdit" name="textEdit3">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>765</width>
+         <height>240</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QTextEdit {      
+ background-color: #deffd4; 
+}</string>
+       </property>
+       <property name="html">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2';&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_2">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>300</y>
+      <width>781</width>
+      <height>247</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Список рассылки и мета-данные для подстановки в шаблоны писем</string>
+    </property>
+    <widget class="QTableWidget" name="tableWidget">
+     <property name="geometry">
+      <rect>
+       <x>8</x>
+       <y>15</y>
+       <width>764</width>
+       <height>226</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Plain</enum>
+     </property>
+     <property name="verticalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOn</enum>
+     </property>
+     <property name="horizontalScrollBarPolicy">
+      <enum>Qt::ScrollBarAsNeeded</enum>
+     </property>
+     <property name="alternatingRowColors">
+      <bool>false</bool>
+     </property>
+     <property name="gridStyle">
+      <enum>Qt::SolidLine</enum>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+     <property name="cornerButtonEnabled">
+      <bool>true</bool>
+     </property>
+     <property name="rowCount">
+      <number>7</number>
+     </property>
+     <property name="columnCount">
+      <number>7</number>
+     </property>
+     <attribute name="horizontalHeaderVisible">
+      <bool>true</bool>
+     </attribute>
+     <attribute name="horizontalHeaderCascadingSectionResizes">
+      <bool>true</bool>
+     </attribute>
+     <attribute name="horizontalHeaderDefaultSectionSize">
+      <number>104</number>
+     </attribute>
+     <attribute name="horizontalHeaderHighlightSections">
+      <bool>true</bool>
+     </attribute>
+     <attribute name="horizontalHeaderStretchLastSection">
+      <bool>true</bool>
+     </attribute>
+     <attribute name="verticalHeaderVisible">
+      <bool>false</bool>
+     </attribute>
+     <attribute name="verticalHeaderHighlightSections">
+      <bool>true</bool>
+     </attribute>
+     <attribute name="verticalHeaderStretchLastSection">
+      <bool>false</bool>
+     </attribute>
+     <row>
+      <property name="text">
+       <string/>
+      </property>
+     </row>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <column>
+      <property name="text">
+       <string>Адресат</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Номер шаблона</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Meta 1</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Meta 2</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Meta 3</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Meta 4</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Meta 5</string>
+      </property>
+     </column>
+     <item row="0" column="0">
+      <property name="text">
+       <string>sample@mail.ру</string>
+      </property>
+      <property name="background">
+       <brush brushstyle="NoBrush">
+        <color alpha="255">
+         <red>240</red>
+         <green>240</green>
+         <blue>240</blue>
+        </color>
+       </brush>
+      </property>
+     </item>
+     <item row="0" column="1">
+      <property name="text">
+       <string>1</string>
+      </property>
+     </item>
+     <item row="0" column="2">
+      <property name="text">
+       <string>Иван Иванович</string>
+      </property>
+     </item>
+     <item row="0" column="3">
+      <property name="text">
+       <string>Иванов</string>
+      </property>
+     </item>
+     <item row="0" column="4">
+      <property name="text">
+       <string/>
+      </property>
+     </item>
+     <item row="0" column="5">
+      <property name="text">
+       <string>EGE0264578</string>
+      </property>
+     </item>
+     <item row="0" column="6">
+      <property name="text">
+       <string>54684321</string>
+      </property>
+     </item>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>Файл</string>
+    </property>
+    <addaction name="action_Get_from_Excel"/>
+    <addaction name="action_Export_To_Excel"/>
+    <addaction name="action_Settings"/>
+    <addaction name="separator"/>
+    <addaction name="action_Exit"/>
+   </widget>
+   <widget class="QMenu" name="menu_2">
+    <property name="title">
+     <string>Рассылка писем</string>
+    </property>
+    <addaction name="action_Send_Mail"/>
+   </widget>
+   <widget class="QMenu" name="menu_He">
+    <property name="title">
+     <string>Справка</string>
+    </property>
+    <addaction name="action_Help"/>
+    <addaction name="action_About"/>
+   </widget>
+   <addaction name="menu"/>
+   <addaction name="menu_2"/>
+   <addaction name="menu_He"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="action_Get_from_Excel">
+   <property name="text">
+    <string>Загрузить данные из Excel</string>
+   </property>
+  </action>
+  <action name="action_Export_To_Excel">
+   <property name="text">
+    <string>Выгрузить шаблон Excel</string>
+   </property>
+  </action>
+  <action name="action_Settings">
+   <property name="text">
+    <string>Настроить почтовый сервер</string>
+   </property>
+  </action>
+  <action name="action_Exit">
+   <property name="text">
+    <string>Выход</string>
+   </property>
+  </action>
+  <action name="action_Send_Mail">
+   <property name="text">
+    <string>Отправить письма всем адресатам</string>
+   </property>
+  </action>
+  <action name="action_Help">
+   <property name="text">
+    <string>Справка</string>
+   </property>
+  </action>
+  <action name="action_About">
+   <property name="text">
+    <string>О программе</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>action_Exit</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
