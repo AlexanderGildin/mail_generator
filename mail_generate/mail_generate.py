@@ -215,14 +215,22 @@ class Ui_MainWindow(object):
                                           "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
                                           "p, li { white-space: pre-wrap; }\n"
                                           "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+                                          "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\';\">Первая строка шаблона используется в качестве темы для письма.</span></p>\n"
+                                          "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\';\">Далее здесь нужно набрать сам текст письма, в котором можно использовать мета-подстановки. Например:</p>\n"
                                           "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\';\">Уважаемый %meta1%!</span></p>\n"
-                                          "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\';\">Приглашаю Вас пройти онлайн тренировку к зачету для экспертов региональных проверочных комиссий ЕГЭ по информатике.  </span></p>\n"
+                                          "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\';\">Приглашаю Вас пройти онлайн тренировку к зачету для экспертов региональных предметных комиссий ЕГЭ по информатике.  </span></p>\n"
                                           "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\';\">Сайт для прохождения тренировки здесь: </span></p>\n"
                                           "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\';\">Ваш логин:%meta4%</span></p>\n"
                                           "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\';\">Ваш пароль: %meta5%</span></p>\n"
                                           "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'MS Shell Dlg 2\';\"><br /></p>\n"
                                           "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\';\">С уважением, председатель комиссии,</span></p>\n"
-                                          "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\';\">Г.А.Г.</span></p></body></html>"))
+                                          "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\';\">Г.А.Г.</p>\n"
+                                          "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\';\"></p><br>\n"
+                                          "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\';\">Для добавления в таблицу адресатов новой строки в ручном режиме используйте клавишу F4</span></p></body></html>"))
+
+        "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\';\"> \n"
+
+
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab1), _translate("MainWindow", "Шаблон №1"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab2), _translate("MainWindow", "Шаблон №2"))
         self.textEdit3.setHtml(_translate("MainWindow",
@@ -286,6 +294,10 @@ class Ui_MainWindow(object):
         self.action_Help.setText(_translate("MainWindow", "Справка"))
         self.action_About.setText(_translate("MainWindow", "О программе"))
 
+    def keyPressEvent(self, event):
+        if event.key() == 16777267: #нажата F4
+            self.tableWidget.insertRow(self.tableWidget.rowCount())
+
 
 class Base_form(Ui_MainWindow, QMainWindow):
     def __init__(self):
@@ -297,6 +309,10 @@ class Base_form(Ui_MainWindow, QMainWindow):
         self.action_Get_from_Excel.triggered.connect(self.import_from_excel)
         self.action_Send_Mail.triggered.connect(self.send_mail)
         self.tableWidget.cellChanged.connect(self.row_column_clicked)
+        # self.tableWidget.cellPressed.connect(self.cell_press)
+
+    # def cell_press(self):
+
 
     def row_column_clicked(self):
         try:
@@ -315,6 +331,7 @@ class Base_form(Ui_MainWindow, QMainWindow):
                     self.tableWidget.item(row, 0).setBackground(QtGui.QColor(255, 255, 255))
         except Exception:
             pass
+
     def base_form_close(self):
         # здесь можно сохранить данные
         self.close()
@@ -325,22 +342,63 @@ class Base_form(Ui_MainWindow, QMainWindow):
             if not (settings_dialog.autorisation):
                 self.statusbar.showMessage("Ошибка авторизации. Письма не отправлены", 2000)
                 return
+        send_count = 0
+        try:
+            for i in range(self.tableWidget.rowCount()):
+                shablon = self.tableWidget.item(i, 1).text()
+                if shablon == '1' or shablon == '2' or shablon == '3':
+                    if shablon == '1':
+                        text = self.textEdit1.toPlainText().split('\n')
+                    elif shablon == '2':
+                        text = self.textEdit2.toPlainText().split('\n')
+                    else:
+                        text = self.textEdit3.toPlainText().split('\n')
+                    subject = ""
+                    try:
+                        subject = text[0]
+                    except Exception:
+                        pass
+                    try:
+                        letter_text = "\n".join(text[1:])
+                        letter_text = letter_text.replace("%meta1%", self.tableWidget.item(i, 2).text())
+                        letter_text = letter_text.replace("%meta2%", self.tableWidget.item(i, 3).text())
+                        letter_text = letter_text.replace("%meta3%", self.tableWidget.item(i, 4).text())
+                        letter_text = letter_text.replace("%meta4%", self.tableWidget.item(i, 5).text())
+                        letter_text = letter_text.replace("%meta5%", self.tableWidget.item(i, 6).text())
+                    except Exception:
+                        pass
+                    try:
+                        msg = MIMEMultipart()
+                        msg['From'] = settings_dialog.lineEdit_2.text()
+                        me = settings_dialog.lineEdit_2.text()
+                        msg['To'] = self.tableWidget.item(i, 0).text()
+                        adr = self.tableWidget.item(i, 0).text()
+                        msg['Subject'] = subject
+                        msg.attach(MIMEText(letter_text, 'plain'))
+                        settings_dialog.server.sendmail(me, [adr], msg.as_string())
+                        send_count += 1
+                    except Exception:
+                        self.statusbar.showMessage(f'письмо {adr} не отправлено', 500)
+        except Exception:
+            pass
+        self.statusbar.showMessage(f'Отправлено писем: {send_count}', 2000)
+
 
     def start_settings_dialog(self):
         if settings_dialog.exec_():
             try:
-                self.statusbar.showMessage("Cоединение с сервером.", 2000)
-                server = smtplib.SMTP(settings_dialog.lineEdit.displayText())
-                server.starttls()
-                server.login(settings_dialog.lineEdit_2.text(), settings_dialog.lineEdit_3.text())
+                settings_dialog.server = smtplib.SMTP(settings_dialog.lineEdit.displayText())
+                settings_dialog.server.starttls()
+                settings_dialog.server.login(settings_dialog.lineEdit_2.text(), settings_dialog.lineEdit_3.text())
                 settings_dialog.autorisation = True
+                self.statusbar.showMessage("Cоединение с сервером установлено.", 2000)
             except Exception:
                 settings_dialog.autorisation = False
                 self.statusbar.showMessage("Ошибка соединения с сервером. Проверьте логин и пароль.", 2000)
 
     def import_from_excel(self):
         fname = ""
-        fname = QFileDialog.getOpenFileName(self, "Открыть список рассылки", "", "Excel (*.xlsx); Excel(*.xls)")[0]
+        fname = QFileDialog.getOpenFileName(self, "Открыть список рассылки", "", "Excel (*.xlsx *.xls)")[0]
         try:
             workbook = xlrd.open_workbook(fname, on_demand=True)
             sheet = workbook.get_sheet(0)
