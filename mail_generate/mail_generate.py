@@ -1,13 +1,50 @@
-import sys, smtplib, xlrd
+import sys, smtplib, pyexcel
 from PyQt5.QtWidgets import QApplication, QMainWindow, QFileDialog, QTableWidgetItem
 from PyQt5 import QtCore, QtGui, QtWidgets
-from email.mime.base import MIMEBase
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-import email.mime.application
 
-max_count_rows_in_table = 10000
-start_row_with_data = 1
+
+class Ui_Form_help(object):
+    def setupUi(self, Form_help):
+        Form_help.setObjectName("Form_help")
+        Form_help.resize(781, 557)
+        Form_help.setMinimumSize(QtCore.QSize(781, 557))
+        Form_help.setMaximumSize(QtCore.QSize(781, 557))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(Form_help.sizePolicy().hasHeightForWidth())
+        Form_help.setSizePolicy(sizePolicy)
+        Form_help.setToolTipDuration(1)
+        self.textBrowser = QtWidgets.QTextBrowser(Form_help)
+        self.textBrowser.setGeometry(QtCore.QRect(10, 0, 761, 511))
+        self.textBrowser.setObjectName("textBrowser")
+        self.pushButton = QtWidgets.QPushButton(Form_help)
+        self.pushButton.setGeometry(QtCore.QRect(10, 520, 761, 31))
+        self.pushButton.setObjectName("pushButton")
+
+        self.retranslateUi(Form_help)
+        self.pushButton.clicked.connect(Form_help.close)
+        QtCore.QMetaObject.connectSlotsByName(Form_help)
+
+    def retranslateUi(self, Form_help):
+        _translate = QtCore.QCoreApplication.translate
+        Form_help.setWindowTitle(_translate("Form_help", "Инструкция по работе с программой"))
+        self.textBrowser.setHtml(_translate("Form_help",
+                                            "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+                                            "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+                                            "p, li { white-space: pre-wrap; }\n"
+                                            "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+                                            "<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt;\">Эта программа предназначена для автоматической рассылки писем схожего содержания нескольким адресатам, данные которых заполнены в электронной таблице Excel. Она поддерживает до трех различных текстов писем и позволяет подставлять в текст письма информацию из пяти столбцов электронной таблицы. </span></p>\n"
+                                            "<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt;\">Всего 4 простых шага для отправки всех писем:</span></p>\n"
+                                            "<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; color:#0000ff;\">1.</span><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt;\"> Подготовьте в Excel список рассылки с одной строкой заголовка. Первый столбец должен содержать адреса электронной почты адресатов, которым требуется отправить письма. "
+                                            "Второй столбец должен содержать номер шаблона с текстом письма (1, 2, или 3). Для отправки одинаковых писем всем адресатам, в этот столбец следует вписывать значение 1. Если оставить второй столбец незаполненным, то письмо данному адресату отправляться не будет. Столбцы с третьего по седьмой Вы можете заполнить по своему усмотрению. Данные из них могут быть использованы в письме. </span></p>\n"
+                                            "<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt;\">(Таблица, расположенная в нижней части окна, предоставляет Вам базовые возможности для непосредственного редактирования списка рассылки без использования электронных таблиц. Для добавления новой строки следует нажать F4.) </span></p>\n"
+                                            "<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; color:#0000ff;\">2. </span><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt;\">Запустите программу. В цветных вкладках «Шаблон №__» наберите письма. Если желаете, чтобы в текст письма подставлялись те или иные данные из таблицы, то, набирая текст письма, впишите, например, %meta1%. Используйте цифры от 1 до 5. Внимание: первая строка цветного поля, в котором набирается письмо, содержит тему письма, а начиная со второй строки – сам текст. Три цветные вкладки соответствуют трем различным текстам писем, которые Вы можете устанавливать индивидуально для каждого адресата. Поле адреса в таблице будет подсвечиваться тем же цветом, что и вкладка с текстом письма. </span></p>\n"
+                                            "<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; color:#0000ff;\">3.</span><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt;\"> В меню «Файл» настройте почтовый smtp-сервер ящика, с которого будут отправлены все письма. Например, для mail.ru этот сервер записывается так: «smtp.mail.ru». Впишите логин и пароль ящика, с которого будут отправлены письма, в соответствующих полях. </span></p>\n"
+                                            "<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; color:#0000ff;\">4.</span><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt;\"> Перейдите в меню «Рассылка писем» и выполните рассылку. </span></p></body></html>"))
+        self.pushButton.setText(_translate("Form_help", "Закрыть"))
 
 
 class Ui_Settings_Dialog(object):
@@ -15,6 +52,8 @@ class Ui_Settings_Dialog(object):
         Settings_Dialog.setObjectName("Settings_Dialog")
         Settings_Dialog.setWindowModality(QtCore.Qt.ApplicationModal)
         Settings_Dialog.resize(377, 168)
+        Settings_Dialog.setMinimumSize(QtCore.QSize(377, 168))
+        Settings_Dialog.setMaximumSize(QtCore.QSize(377, 168))
         self.buttonBox = QtWidgets.QDialogButtonBox(Settings_Dialog)
         self.buttonBox.setGeometry(QtCore.QRect(20, 130, 341, 32))
         self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
@@ -230,7 +269,6 @@ class Ui_MainWindow(object):
 
         "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\';\"> \n"
 
-
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab1), _translate("MainWindow", "Шаблон №1"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab2), _translate("MainWindow", "Шаблон №2"))
         self.textEdit3.setHtml(_translate("MainWindow",
@@ -254,19 +292,19 @@ class Ui_MainWindow(object):
         item.setToolTip("Номер шаблона 1,2 или 3")
         # item.setTextAlignment(0)
         item = self.tableWidget.horizontalHeaderItem(2)
-        item.setText(_translate("MainWindow", "Meta 1"))
+        item.setText(_translate("MainWindow", "meta 1"))
         item.setToolTip("для подстановки этого значения используйте в тексте шаблона %meta1%")
         item = self.tableWidget.horizontalHeaderItem(3)
-        item.setText(_translate("MainWindow", "Meta 2"))
+        item.setText(_translate("MainWindow", "meta 2"))
         item.setToolTip("для подстановки этого значения используйте в тексте шаблона %meta2%")
         item = self.tableWidget.horizontalHeaderItem(4)
-        item.setText(_translate("MainWindow", "Meta 3"))
+        item.setText(_translate("MainWindow", "meta 3"))
         item.setToolTip("для подстановки этого значения используйте в тексте шаблона %meta3%")
         item = self.tableWidget.horizontalHeaderItem(5)
-        item.setText(_translate("MainWindow", "Meta 4"))
+        item.setText(_translate("MainWindow", "meta 4"))
         item.setToolTip("для подстановки этого значения используйте в тексте шаблона %meta4%")
         item = self.tableWidget.horizontalHeaderItem(6)
-        item.setText(_translate("MainWindow", "Meta 5"))
+        item.setText(_translate("MainWindow", "meta 5"))
         item.setToolTip("для подстановки этого значения используйте в тексте шаблона %meta5%")
         __sortingEnabled = self.tableWidget.isSortingEnabled()
         self.tableWidget.setSortingEnabled(False)
@@ -295,7 +333,7 @@ class Ui_MainWindow(object):
         self.action_About.setText(_translate("MainWindow", "О программе"))
 
     def keyPressEvent(self, event):
-        if event.key() == 16777267: #нажата F4
+        if event.key() == 16777267:  # нажата F4
             self.tableWidget.insertRow(self.tableWidget.rowCount())
 
 
@@ -307,12 +345,13 @@ class Base_form(Ui_MainWindow, QMainWindow):
         self.action_Exit.triggered.connect(self.base_form_close)
         self.action_Settings.triggered.connect(self.start_settings_dialog)
         self.action_Get_from_Excel.triggered.connect(self.import_from_excel)
+        self.action_Export_To_Excel.triggered.connect(self.export_to_excel)
         self.action_Send_Mail.triggered.connect(self.send_mail)
+        self.action_Help.triggered.connect(self.start_help)
         self.tableWidget.cellChanged.connect(self.row_column_clicked)
-        # self.tableWidget.cellPressed.connect(self.cell_press)
 
-    # def cell_press(self):
-
+    def start_help(self):
+        help_form.show()
 
     def row_column_clicked(self):
         try:
@@ -336,6 +375,16 @@ class Base_form(Ui_MainWindow, QMainWindow):
         # здесь можно сохранить данные
         self.close()
 
+    def export_to_excel(self):
+        a_list = [["Адресат", "Шаблон", "Имя Отчетво", "Фамилия", "Данные №3", "Данные №4", "Данные №5"],
+                  ['sample@mail.ру', '1', 'Иван Иванович', 'Иванов', '', '', ''],
+                  ['Названия столбцов можно менять,', '', '', '', '', '', ''],
+                  ['но первая строка должна содержать названия столбцов.', '', '', '', '', '', ''],
+                  ['Не забудьте переименовать файл и удалить эти комментарии.', '', '', '', '', '', '']
+                  ]
+        pyexcel.save_as(array=a_list, dest_file_name="example.xls")
+        self.statusbar.showMessage("Шаблон списка рассылки example.xls создан в текущем каталоге", 3000)
+
     def send_mail(self):
         if not (settings_dialog.autorisation):
             self.start_settings_dialog()
@@ -356,6 +405,11 @@ class Base_form(Ui_MainWindow, QMainWindow):
                     subject = ""
                     try:
                         subject = text[0]
+                        subject = subject.replace("%meta1%", self.tableWidget.item(i, 2).text())
+                        subject = subject.replace("%meta2%", self.tableWidget.item(i, 3).text())
+                        subject = subject.replace("%meta3%", self.tableWidget.item(i, 4).text())
+                        subject = subject.replace("%meta4%", self.tableWidget.item(i, 5).text())
+                        subject = subject.replace("%meta5%", self.tableWidget.item(i, 6).text())
                     except Exception:
                         pass
                     try:
@@ -383,7 +437,6 @@ class Base_form(Ui_MainWindow, QMainWindow):
             pass
         self.statusbar.showMessage(f'Отправлено писем: {send_count}', 2000)
 
-
     def start_settings_dialog(self):
         if settings_dialog.exec_():
             try:
@@ -400,32 +453,35 @@ class Base_form(Ui_MainWindow, QMainWindow):
         fname = ""
         fname = QFileDialog.getOpenFileName(self, "Открыть список рассылки", "", "Excel (*.xlsx *.xls)")[0]
         try:
-            workbook = xlrd.open_workbook(fname, on_demand=True)
-            sheet = workbook.get_sheet(0)
+            work_sheet = pyexcel.get_array(file_name=fname)
             while self.tableWidget.rowCount() > 0:
                 self.tableWidget.removeRow(0)
-            for i in range(start_row_with_data, max_count_rows_in_table):
-                if sheet.cell(i, 0).value != "":
+            i = -1
+            for sheet_row in work_sheet:
+                i += 1
+                if i == 0:
+                    continue
+                if sheet_row[0] != "":
                     if self.tableWidget.rowCount() < i:
                         self.tableWidget.insertRow(i - 1)
-                self.tableWidget.setItem(i - 1, 0, QTableWidgetItem(str(sheet.cell(i, 0).value)))
+                self.tableWidget.setItem(i - 1, 0, QTableWidgetItem(str(sheet_row[0])))
                 try:
-                    self.tableWidget.setItem(i - 1, 1, QTableWidgetItem(str(int(sheet.cell(i, 1).value))))
-                    if str(int(sheet.cell(i, 1).value)) == "1":
+                    self.tableWidget.setItem(i - 1, 1, QTableWidgetItem(str(int(sheet_row[1]))))
+                    if str(int(sheet_row[1])) == "1":
                         self.tableWidget.item(i - 1, 0).setBackground(QtGui.QColor(230, 255, 255))
-                    elif str(int(sheet.cell(i, 1).value)) == "2":
+                    elif str(int(sheet_row[1])) == "2":
                         self.tableWidget.item(i - 1, 0).setBackground(QtGui.QColor(255, 254, 222))
-                    elif str(int(sheet.cell(i, 1).value)) == "3":
+                    elif str(int(sheet_row[1])) == "3":
                         self.tableWidget.item(i - 1, 0).setBackground(QtGui.QColor(222, 255, 212))
                     else:
                         self.tableWidget.item(i - 1, 0).setBackground(QtGui.QColor(255, 255, 255))
                 except Exception:
                     pass
-                self.tableWidget.setItem(i - 1, 2, QTableWidgetItem(str(sheet.cell(i, 2).value)))
-                self.tableWidget.setItem(i - 1, 3, QTableWidgetItem(str(sheet.cell(i, 3).value)))
-                self.tableWidget.setItem(i - 1, 4, QTableWidgetItem(str(sheet.cell(i, 4).value)))
-                self.tableWidget.setItem(i - 1, 5, QTableWidgetItem(str(sheet.cell(i, 5).value)))
-                self.tableWidget.setItem(i - 1, 6, QTableWidgetItem(str(sheet.cell(i, 6).value)))
+                self.tableWidget.setItem(i - 1, 2, QTableWidgetItem(str(sheet_row[2])))
+                self.tableWidget.setItem(i - 1, 3, QTableWidgetItem(str(sheet_row[3])))
+                self.tableWidget.setItem(i - 1, 4, QTableWidgetItem(str(sheet_row[4])))
+                self.tableWidget.setItem(i - 1, 5, QTableWidgetItem(str(sheet_row[5])))
+                self.tableWidget.setItem(i - 1, 6, QTableWidgetItem(str(sheet_row[6])))
 
         except Exception:
             self.statusbar.showMessage("Ошибка чтения из файла", 2000)
@@ -442,9 +498,16 @@ class Settings_dialog(Ui_Settings_Dialog, QtWidgets.QDialog):
         self.server_password = ""
 
 
+class Help_form(Ui_Form_help, QtWidgets.QDialog):
+    def __init__(self):
+        super().__init__()
+        self.setupUi(self)
+        self.setWindowIcon(QtGui.QIcon('res/mail_ico.png'))
+
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     base_form = Base_form()
     settings_dialog = Settings_dialog()
+    help_form = Help_form()
     base_form.show()
     sys.exit(app.exec_())
