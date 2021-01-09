@@ -40,10 +40,10 @@ class Ui_Form_help(object):
                                             "<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt;\">Всего 4 простых шага для отправки всех писем:</span></p>\n"
                                             "<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; color:#0000ff;\">1.</span><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt;\"> Подготовьте в Excel список рассылки с одной строкой заголовка. Первый столбец должен содержать адреса электронной почты адресатов, которым требуется отправить письма. "
                                             "Второй столбец должен содержать номер шаблона с текстом письма (1, 2, или 3). Для отправки одинаковых писем всем адресатам, в этот столбец следует вписывать значение 1. Если оставить второй столбец незаполненным, то письмо данному адресату отправляться не будет. Столбцы с третьего по седьмой Вы можете заполнить по своему усмотрению. Данные из них могут быть использованы в письме. </span></p>\n"
-                                            "<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt;\">(Таблица, расположенная в нижней части окна, предоставляет Вам базовые возможности для непосредственного редактирования списка рассылки без использования электронных таблиц. Для добавления новой строки следует нажать F4.) </span></p>\n"
+                                            "<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt;\">(Таблица, расположенная в нижней части окна, предоставляет Вам базовые возможности для непосредственного редактирования списка рассылки без использования электронных таблиц. Для добавления новой строки следует нажать F4. Для удаления текста из ячейки, его предварительно нужно выделить.) </span></p>\n"
                                             "<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; color:#0000ff;\">2. </span><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt;\">Запустите программу. В цветных вкладках «Шаблон №__» наберите письма. Если желаете, чтобы в текст письма подставлялись те или иные данные из таблицы, то, набирая текст письма, впишите, например, %meta1%. Используйте цифры от 1 до 5. Внимание: первая строка цветного поля, в котором набирается письмо, содержит тему письма, а начиная со второй строки – сам текст. Три цветные вкладки соответствуют трем различным текстам писем, которые Вы можете устанавливать индивидуально для каждого адресата. Поле адреса в таблице будет подсвечиваться тем же цветом, что и вкладка с текстом письма. </span></p>\n"
-                                            "<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; color:#0000ff;\">3.</span><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt;\"> В меню «Файл» настройте почтовый smtp-сервер ящика, с которого будут отправлены все письма. Например, для mail.ru этот сервер записывается так: «smtp.mail.ru». Впишите логин и пароль ящика, с которого будут отправлены письма, в соответствующих полях. </span></p>\n"
-                                            "<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; color:#0000ff;\">4.</span><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt;\"> Перейдите в меню «Рассылка писем» и выполните рассылку. </span></p></body></html>"))
+                                            "<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; color:#0000ff;\">3.</span><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt;\"> В меню «Файл» настройте почтовый smtp-сервер ящика, с которого будут отправлены все письма. Например, «smtp.mail.ru» или «smtp.yandex.ru». Впишите логин и пароль ящика, с которого будут отправлены письма, в соответствующих полях. Сообщение о статусе соединения с сервером появится в статус-баре внизу.</span></p>\n"
+                                            "<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; color:#0000ff;\">4.</span><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt;\"> Щелкните в таблице по любому из адресов, перейдите в меню «Рассылка писем» и выполните рассылку. Цвет адресов, по которым рассылка прошла успешно, будет изменен на зеленый.</span></p></body></html>"))
         self.pushButton.setText(_translate("Form_help", "Закрыть"))
 
 
@@ -310,8 +310,10 @@ class Ui_MainWindow(object):
         self.tableWidget.setSortingEnabled(False)
         item = self.tableWidget.item(0, 0)
         item.setText(_translate("MainWindow", "sample@mail.ру"))
+        item.setBackground(QtGui.QColor(230, 255, 255))
         item = self.tableWidget.item(0, 1)
         item.setText(_translate("MainWindow", "1"))
+        item.setTextAlignment(QtCore.Qt.AlignCenter)
         item = self.tableWidget.item(0, 2)
         item.setText(_translate("MainWindow", "Иван Иванович"))
         item = self.tableWidget.item(0, 3)
@@ -386,6 +388,7 @@ class Base_form(Ui_MainWindow, QMainWindow):
         self.statusbar.showMessage("Шаблон списка рассылки example.xls создан в текущем каталоге", 3000)
 
     def send_mail(self):
+        self.statusbar.showMessage("Процесс отправки писем запущен. Отправленные письма будут помечены зеленым цветом.", 3000)
         if not (settings_dialog.autorisation):
             self.start_settings_dialog()
             if not (settings_dialog.autorisation):
@@ -429,10 +432,24 @@ class Base_form(Ui_MainWindow, QMainWindow):
                         adr = self.tableWidget.item(i, 0).text()
                         msg['Subject'] = subject
                         msg.attach(MIMEText(letter_text, 'plain'))
+
                         settings_dialog.server.sendmail(me, [adr], msg.as_string())
                         send_count += 1
+                        self.tableWidget.item(i, 0).setBackground(QtGui.QColor(0, 255, 0))
+
                     except Exception:
                         self.statusbar.showMessage(f'письмо {adr} не отправлено', 500)
+                        settings_dialog.autorisation = False
+                        try:
+                            settings_dialog.server = smtplib.SMTP(settings_dialog.lineEdit.displayText())
+                            settings_dialog.server.starttls()
+                            settings_dialog.server.login(settings_dialog.lineEdit_2.text(), settings_dialog.lineEdit_3.text())
+                            settings_dialog.autorisation = True
+                            self.statusbar.showMessage("Cоединение с сервером восстановлено.", 500)
+                            continue
+                        except Exception:
+                            settings_dialog.autorisation = False
+                            self.statusbar.showMessage("Потеряно соединение с сервером.", 3000)
         except Exception:
             pass
         self.statusbar.showMessage(f'Отправлено писем: {send_count}', 2000)
@@ -444,10 +461,10 @@ class Base_form(Ui_MainWindow, QMainWindow):
                 settings_dialog.server.starttls()
                 settings_dialog.server.login(settings_dialog.lineEdit_2.text(), settings_dialog.lineEdit_3.text())
                 settings_dialog.autorisation = True
-                self.statusbar.showMessage("Cоединение с сервером установлено.", 2000)
+                self.statusbar.showMessage("Cоединение с сервером установлено.", 3000)
             except Exception:
                 settings_dialog.autorisation = False
-                self.statusbar.showMessage("Ошибка соединения с сервером. Проверьте логин и пароль.", 2000)
+                self.statusbar.showMessage("Ошибка соединения с сервером. Проверьте логин и пароль.", 3000)
 
     def import_from_excel(self):
         fname = ""
@@ -467,6 +484,7 @@ class Base_form(Ui_MainWindow, QMainWindow):
                 self.tableWidget.setItem(i - 1, 0, QTableWidgetItem(str(sheet_row[0])))
                 try:
                     self.tableWidget.setItem(i - 1, 1, QTableWidgetItem(str(int(sheet_row[1]))))
+                    self.tableWidget.item(i - 1, 1).setTextAlignment(QtCore.Qt.AlignCenter)
                     if str(int(sheet_row[1])) == "1":
                         self.tableWidget.item(i - 1, 0).setBackground(QtGui.QColor(230, 255, 255))
                     elif str(int(sheet_row[1])) == "2":
